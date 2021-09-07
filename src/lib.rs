@@ -130,6 +130,11 @@ impl YaffePlugin for YaffePlex {
             SelectedAction::Load
         }
     }
+
+    fn on_back(&mut self) -> bool {
+        self.path.pop();
+        true
+    }
 }
 
 fn get_title_and_art<'a>(plex: &YaffePlex, node: roxmltree::Node<'a, 'a>) -> (&'a str, PathType) {
