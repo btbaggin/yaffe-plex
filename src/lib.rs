@@ -49,6 +49,13 @@ impl YaffePlugin for YaffePlex {
         Ok(())
     }
 
+    fn settings(&self) -> Vec<(&'static str, PluginSetting)> {
+        let mut result = vec!();
+        result.push(("plex_server", PluginSetting::String("".to_string())));
+        result.push(("plex_token", PluginSetting::String("".to_string())));
+        result
+    }
+
     fn initial_load(&mut self) {
         self.path = std::path::PathBuf::new();
         self.path.push("/library/sections");
